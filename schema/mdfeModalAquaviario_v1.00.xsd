@@ -37,6 +37,17 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
+				<xs:element name="xEmbar">
+					<xs:annotation>
+						<xs:documentation>Nome da embarcação</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="TString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="60"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="nViag">
 					<xs:annotation>
 						<xs:documentation>Número da Viagem</xs:documentation>
@@ -90,6 +101,17 @@
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:element>
+							<xs:element name="xTermCarreg">
+								<xs:annotation>
+									<xs:documentation>Nome do Terminal de Carregamento</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="TString">
+										<xs:minLength value="1"/>
+										<xs:maxLength value="60"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -108,6 +130,17 @@
 									<xs:restriction base="TString">
 										<xs:minLength value="1"/>
 										<xs:maxLength value="8"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="xTermDescarreg">
+								<xs:annotation>
+									<xs:documentation>Nome do Terminal de Descarregamento</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="TString">
+										<xs:minLength value="1"/>
+										<xs:maxLength value="60"/>
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:element>
