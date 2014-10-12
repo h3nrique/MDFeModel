@@ -167,6 +167,32 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="infUnidCargaVazia" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Informações das Undades de Carga vazias</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="idUnidCargaVazia" type="TContainer">
+								<xs:annotation>
+									<xs:documentation>Identificação da unidades de carga vazia</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="tpUnidCargaVazia">
+								<xs:annotation>
+									<xs:documentation>Tipo da unidade de carga vazia</xs:documentation>
+									<xs:documentation>1 - Container 2 - Carreta</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="TString">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="2"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
