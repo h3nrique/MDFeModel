@@ -8,8 +8,6 @@
 
 package br.inf.portalfiscal.mdfe;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -18,14 +16,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Tipo Retorno de Pedido de Consulta da Situação Atual do MDF-e
+ * Tipo Retorno de Pedido de Consulta do Manifesto Eletrônico de Documentos Fiscais
  * 
- * <p>Java class for TRetConsSitMDFe complex type.
+ * <p>Java class for TRetMDFeConsultaDFe complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TRetConsSitMDFe">
+ * &lt;complexType name="TRetMDFeConsultaDFe">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -33,11 +31,9 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/mdfe}TVerAplic"/>
  *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/mdfe}TStat"/>
  *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/mdfe}TMotivo"/>
- *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/mdfe}TCodUfIBGE"/>
- *         &lt;element name="protMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TProtMDFe" minOccurs="0"/>
- *         &lt;element name="procEventoMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TProcEvento" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MDFeDFe" type="{http://www.portalfiscal.inf.br/mdfe}TMDFeDFe" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerConsSitMDFe" />
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerMDFeConsultaDFe" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -46,16 +42,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRetConsSitMDFe", propOrder = {
+@XmlType(name = "TRetMDFeConsultaDFe", propOrder = {
     "tpAmb",
     "verAplic",
     "cStat",
     "xMotivo",
-    "cuf",
-    "protMDFe",
-    "procEventoMDFe"
+    "mdFeDFe"
 })
-public class TRetConsSitMDFe {
+public class TRetMDFeConsultaDFe {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -65,10 +59,8 @@ public class TRetConsSitMDFe {
     protected String cStat;
     @XmlElement(required = true)
     protected String xMotivo;
-    @XmlElement(name = "cUF", required = true)
-    protected String cuf;
-    protected TProtMDFe protMDFe;
-    protected List<TProcEvento> procEventoMDFe;
+    @XmlElement(name = "MDFeDFe")
+    protected TMDFeDFe mdFeDFe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
@@ -169,80 +161,27 @@ public class TRetConsSitMDFe {
     }
 
     /**
-     * Gets the value of the cuf property.
+     * Gets the value of the mdFeDFe property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link TMDFeDFe }
      *     
      */
-    public String getCUF() {
-        return cuf;
+    public TMDFeDFe getMDFeDFe() {
+        return mdFeDFe;
     }
 
     /**
-     * Sets the value of the cuf property.
+     * Sets the value of the mdFeDFe property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link TMDFeDFe }
      *     
      */
-    public void setCUF(String value) {
-        this.cuf = value;
-    }
-
-    /**
-     * Gets the value of the protMDFe property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TProtMDFe }
-     *     
-     */
-    public TProtMDFe getProtMDFe() {
-        return protMDFe;
-    }
-
-    /**
-     * Sets the value of the protMDFe property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TProtMDFe }
-     *     
-     */
-    public void setProtMDFe(TProtMDFe value) {
-        this.protMDFe = value;
-    }
-
-    /**
-     * Gets the value of the procEventoMDFe property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the procEventoMDFe property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getProcEventoMDFe().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link TProcEvento }
-     * 
-     * 
-     */
-    public List<TProcEvento> getProcEventoMDFe() {
-        if (procEventoMDFe == null) {
-            procEventoMDFe = new ArrayList<TProcEvento>();
-        }
-        return this.procEventoMDFe;
+    public void setMDFeDFe(TMDFeDFe value) {
+        this.mdFeDFe = value;
     }
 
     /**

@@ -8,8 +8,6 @@
 
 package br.inf.portalfiscal.mdfe;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -18,14 +16,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Tipo Retorno de Pedido de Consulta da Situação Atual do MDF-e
+ * Schema XML de validação do lote de retorno de documentos ficais eletronicos
  * 
- * <p>Java class for TRetConsSitMDFe complex type.
+ * <p>Java class for TRetDistDFe complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TRetConsSitMDFe">
+ * &lt;complexType name="TRetDistDFe">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -33,11 +31,13 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/mdfe}TVerAplic"/>
  *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/mdfe}TStat"/>
  *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/mdfe}TMotivo"/>
- *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/mdfe}TCodUfIBGE"/>
- *         &lt;element name="protMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TProtMDFe" minOccurs="0"/>
- *         &lt;element name="procEventoMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TProcEvento" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="ultNSU" type="{http://www.portalfiscal.inf.br/mdfe}TNSU" minOccurs="0"/>
+ *         &lt;choice minOccurs="0">
+ *           &lt;element name="loteDistMDFeComp" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+ *           &lt;element name="loteDistMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TLoteDistDFe"/>
+ *         &lt;/choice>
  *       &lt;/sequence>
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerConsSitMDFe" />
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerDFe" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -46,16 +46,16 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRetConsSitMDFe", propOrder = {
+@XmlType(name = "TRetDistDFe", propOrder = {
     "tpAmb",
     "verAplic",
     "cStat",
     "xMotivo",
-    "cuf",
-    "protMDFe",
-    "procEventoMDFe"
+    "ultNSU",
+    "loteDistMDFeComp",
+    "loteDistMDFe"
 })
-public class TRetConsSitMDFe {
+public class TRetDistDFe {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -65,10 +65,9 @@ public class TRetConsSitMDFe {
     protected String cStat;
     @XmlElement(required = true)
     protected String xMotivo;
-    @XmlElement(name = "cUF", required = true)
-    protected String cuf;
-    protected TProtMDFe protMDFe;
-    protected List<TProcEvento> procEventoMDFe;
+    protected String ultNSU;
+    protected byte[] loteDistMDFeComp;
+    protected TLoteDistDFe loteDistMDFe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
@@ -169,80 +168,73 @@ public class TRetConsSitMDFe {
     }
 
     /**
-     * Gets the value of the cuf property.
+     * Gets the value of the ultNSU property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCUF() {
-        return cuf;
+    public String getUltNSU() {
+        return ultNSU;
     }
 
     /**
-     * Sets the value of the cuf property.
+     * Sets the value of the ultNSU property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCUF(String value) {
-        this.cuf = value;
+    public void setUltNSU(String value) {
+        this.ultNSU = value;
     }
 
     /**
-     * Gets the value of the protMDFe property.
+     * Gets the value of the loteDistMDFeComp property.
      * 
      * @return
      *     possible object is
-     *     {@link TProtMDFe }
-     *     
+     *     byte[]
      */
-    public TProtMDFe getProtMDFe() {
-        return protMDFe;
+    public byte[] getLoteDistMDFeComp() {
+        return loteDistMDFeComp;
     }
 
     /**
-     * Sets the value of the protMDFe property.
+     * Sets the value of the loteDistMDFeComp property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TProtMDFe }
-     *     
+     *     byte[]
      */
-    public void setProtMDFe(TProtMDFe value) {
-        this.protMDFe = value;
+    public void setLoteDistMDFeComp(byte[] value) {
+        this.loteDistMDFeComp = value;
     }
 
     /**
-     * Gets the value of the procEventoMDFe property.
+     * Gets the value of the loteDistMDFe property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the procEventoMDFe property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getProcEventoMDFe().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link TProcEvento }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link TLoteDistDFe }
+     *     
      */
-    public List<TProcEvento> getProcEventoMDFe() {
-        if (procEventoMDFe == null) {
-            procEventoMDFe = new ArrayList<TProcEvento>();
-        }
-        return this.procEventoMDFe;
+    public TLoteDistDFe getLoteDistMDFe() {
+        return loteDistMDFe;
+    }
+
+    /**
+     * Sets the value of the loteDistMDFe property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TLoteDistDFe }
+     *     
+     */
+    public void setLoteDistMDFe(TLoteDistDFe value) {
+        this.loteDistMDFe = value;
     }
 
     /**

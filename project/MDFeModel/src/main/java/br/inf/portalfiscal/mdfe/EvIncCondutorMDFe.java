@@ -8,47 +8,50 @@
 
 package br.inf.portalfiscal.mdfe;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Tipo Dados Unidade de Carga
- * 
- * <p>Java class for TUnidCarga complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TUnidCarga">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="tpUnidCarga" type="{http://www.portalfiscal.inf.br/mdfe}TtipoUnidCarga"/>
- *         &lt;element name="idUnidCarga" type="{http://www.portalfiscal.inf.br/mdfe}TContainer"/>
- *         &lt;element name="lacUnidCarga" maxOccurs="unbounded" minOccurs="0">
+ *         &lt;element name="descEvento">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;whiteSpace value="preserve"/>
+ *               &lt;enumeration value="Inclusao Condutor"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="condutor">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="nLacre">
+ *                   &lt;element name="xNome">
  *                     &lt;simpleType>
  *                       &lt;restriction base="{http://www.portalfiscal.inf.br/mdfe}TString">
+ *                         &lt;maxLength value="60"/>
  *                         &lt;minLength value="1"/>
- *                         &lt;maxLength value="20"/>
  *                       &lt;/restriction>
  *                     &lt;/simpleType>
  *                   &lt;/element>
+ *                   &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/mdfe}TCpf"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="qtdRat" type="{http://www.portalfiscal.inf.br/mdfe}TDec_0302" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -58,120 +61,64 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TUnidCarga", propOrder = {
-    "tpUnidCarga",
-    "idUnidCarga",
-    "lacUnidCarga",
-    "qtdRat"
+@XmlType(name = "", propOrder = {
+    "descEvento",
+    "condutor"
 })
-public class TUnidCarga {
+@XmlRootElement(name = "evIncCondutorMDFe")
+public class EvIncCondutorMDFe {
 
     @XmlElement(required = true)
-    protected String tpUnidCarga;
+    protected String descEvento;
     @XmlElement(required = true)
-    protected String idUnidCarga;
-    protected List<TUnidCarga.LacUnidCarga> lacUnidCarga;
-    protected String qtdRat;
+    protected EvIncCondutorMDFe.Condutor condutor;
 
     /**
-     * Gets the value of the tpUnidCarga property.
+     * Gets the value of the descEvento property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTpUnidCarga() {
-        return tpUnidCarga;
+    public String getDescEvento() {
+        return descEvento;
     }
 
     /**
-     * Sets the value of the tpUnidCarga property.
+     * Sets the value of the descEvento property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTpUnidCarga(String value) {
-        this.tpUnidCarga = value;
+    public void setDescEvento(String value) {
+        this.descEvento = value;
     }
 
     /**
-     * Gets the value of the idUnidCarga property.
+     * Gets the value of the condutor property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link EvIncCondutorMDFe.Condutor }
      *     
      */
-    public String getIdUnidCarga() {
-        return idUnidCarga;
+    public EvIncCondutorMDFe.Condutor getCondutor() {
+        return condutor;
     }
 
     /**
-     * Sets the value of the idUnidCarga property.
+     * Sets the value of the condutor property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link EvIncCondutorMDFe.Condutor }
      *     
      */
-    public void setIdUnidCarga(String value) {
-        this.idUnidCarga = value;
-    }
-
-    /**
-     * Gets the value of the lacUnidCarga property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the lacUnidCarga property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getLacUnidCarga().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link TUnidCarga.LacUnidCarga }
-     * 
-     * 
-     */
-    public List<TUnidCarga.LacUnidCarga> getLacUnidCarga() {
-        if (lacUnidCarga == null) {
-            lacUnidCarga = new ArrayList<TUnidCarga.LacUnidCarga>();
-        }
-        return this.lacUnidCarga;
-    }
-
-    /**
-     * Gets the value of the qtdRat property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getQtdRat() {
-        return qtdRat;
-    }
-
-    /**
-     * Sets the value of the qtdRat property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setQtdRat(String value) {
-        this.qtdRat = value;
+    public void setCondutor(EvIncCondutorMDFe.Condutor value) {
+        this.condutor = value;
     }
 
 
@@ -185,14 +132,15 @@ public class TUnidCarga {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="nLacre">
+     *         &lt;element name="xNome">
      *           &lt;simpleType>
      *             &lt;restriction base="{http://www.portalfiscal.inf.br/mdfe}TString">
+     *               &lt;maxLength value="60"/>
      *               &lt;minLength value="1"/>
-     *               &lt;maxLength value="20"/>
      *             &lt;/restriction>
      *           &lt;/simpleType>
      *         &lt;/element>
+     *         &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/mdfe}TCpf"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -203,35 +151,62 @@ public class TUnidCarga {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nLacre"
+        "xNome",
+        "cpf"
     })
-    public static class LacUnidCarga {
+    public static class Condutor {
 
         @XmlElement(required = true)
-        protected String nLacre;
+        protected String xNome;
+        @XmlElement(name = "CPF", required = true)
+        protected String cpf;
 
         /**
-         * Gets the value of the nLacre property.
+         * Gets the value of the xNome property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getNLacre() {
-            return nLacre;
+        public String getXNome() {
+            return xNome;
         }
 
         /**
-         * Sets the value of the nLacre property.
+         * Sets the value of the xNome property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setNLacre(String value) {
-            this.nLacre = value;
+        public void setXNome(String value) {
+            this.xNome = value;
+        }
+
+        /**
+         * Gets the value of the cpf property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCPF() {
+            return cpf;
+        }
+
+        /**
+         * Sets the value of the cpf property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCPF(String value) {
+            this.cpf = value;
         }
 
     }

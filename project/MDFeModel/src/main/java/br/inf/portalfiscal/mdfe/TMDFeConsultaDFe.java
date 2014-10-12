@@ -16,21 +16,22 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Tipo procEvento
+ * Tipo Pedido de Consulta do Manifesto Eletrônico de Documentos Fiscais
  * 
- * <p>Java class for TProcEvento complex type.
+ * <p>Java class for TMDFeConsultaDFe complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TProcEvento">
+ * &lt;complexType name="TMDFeConsultaDFe">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="eventoMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TEvento"/>
- *         &lt;element name="retEventoMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TRetEvento"/>
+ *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/mdfe}TAmb"/>
+ *         &lt;element name="xServ" type="{http://www.portalfiscal.inf.br/mdfe}TServ"/>
+ *         &lt;element name="chMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TChNFe"/>
  *       &lt;/sequence>
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerEvento" />
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerMDFeConsultaDFe" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -39,65 +40,92 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TProcEvento", propOrder = {
-    "eventoMDFe",
-    "retEventoMDFe"
+@XmlType(name = "TMDFeConsultaDFe", propOrder = {
+    "tpAmb",
+    "xServ",
+    "chMDFe"
 })
-public class TProcEvento {
+public class TMDFeConsultaDFe {
 
     @XmlElement(required = true)
-    protected TEvento eventoMDFe;
+    protected String tpAmb;
     @XmlElement(required = true)
-    protected TRetEvento retEventoMDFe;
+    protected String xServ;
+    @XmlElement(required = true)
+    protected String chMDFe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
     /**
-     * Gets the value of the eventoMDFe property.
+     * Gets the value of the tpAmb property.
      * 
      * @return
      *     possible object is
-     *     {@link TEvento }
+     *     {@link String }
      *     
      */
-    public TEvento getEventoMDFe() {
-        return eventoMDFe;
+    public String getTpAmb() {
+        return tpAmb;
     }
 
     /**
-     * Sets the value of the eventoMDFe property.
+     * Sets the value of the tpAmb property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TEvento }
+     *     {@link String }
      *     
      */
-    public void setEventoMDFe(TEvento value) {
-        this.eventoMDFe = value;
+    public void setTpAmb(String value) {
+        this.tpAmb = value;
     }
 
     /**
-     * Gets the value of the retEventoMDFe property.
+     * Gets the value of the xServ property.
      * 
      * @return
      *     possible object is
-     *     {@link TRetEvento }
+     *     {@link String }
      *     
      */
-    public TRetEvento getRetEventoMDFe() {
-        return retEventoMDFe;
+    public String getXServ() {
+        return xServ;
     }
 
     /**
-     * Sets the value of the retEventoMDFe property.
+     * Sets the value of the xServ property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TRetEvento }
+     *     {@link String }
      *     
      */
-    public void setRetEventoMDFe(TRetEvento value) {
-        this.retEventoMDFe = value;
+    public void setXServ(String value) {
+        this.xServ = value;
+    }
+
+    /**
+     * Gets the value of the chMDFe property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChMDFe() {
+        return chMDFe;
+    }
+
+    /**
+     * Sets the value of the chMDFe property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChMDFe(String value) {
+        this.chMDFe = value;
     }
 
     /**

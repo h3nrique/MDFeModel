@@ -16,27 +16,42 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Tipo Pedido de Consulta da Situação Atual do MDF-e
+ * Schema XML de validação da área de dados da mensagem da solicitação de distribuição de DF-e
  * 
- * <p>Java class for TConsSitMDFe complex type.
+ * <p>Java class for TDistDFe complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TConsSitMDFe">
+ * &lt;complexType name="TDistDFe">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/mdfe}TAmb"/>
- *         &lt;element name="xServ" type="{http://www.portalfiscal.inf.br/mdfe}TServ"/>
- *         &lt;element name="chMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TChNFe"/>
+ *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/mdfe}TVerAplic"/>
+ *         &lt;element name="indDFe">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedInt">
+ *               &lt;enumeration value="0"/>
+ *               &lt;enumeration value="1"/>
+ *               &lt;enumeration value="2"/>
+ *               &lt;enumeration value="3"/>
+ *               &lt;enumeration value="8"/>
+ *               &lt;enumeration value="9"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="indCompRet">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedInt">
+ *               &lt;enumeration value="0"/>
+ *               &lt;enumeration value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="ultNSU" type="{http://www.portalfiscal.inf.br/mdfe}TNSU"/>
  *       &lt;/sequence>
- *       &lt;attribute name="versao" use="required">
- *         &lt;simpleType>
- *           &lt;restriction base="{http://www.portalfiscal.inf.br/mdfe}TVerConsSitMDFe">
- *           &lt;/restriction>
- *         &lt;/simpleType>
- *       &lt;/attribute>
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerDFe" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -45,19 +60,23 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TConsSitMDFe", propOrder = {
+@XmlType(name = "TDistDFe", propOrder = {
     "tpAmb",
-    "xServ",
-    "chMDFe"
+    "verAplic",
+    "indDFe",
+    "indCompRet",
+    "ultNSU"
 })
-public class TConsSitMDFe {
+public class TDistDFe {
 
     @XmlElement(required = true)
     protected String tpAmb;
     @XmlElement(required = true)
-    protected String xServ;
+    protected String verAplic;
+    protected long indDFe;
+    protected long indCompRet;
     @XmlElement(required = true)
-    protected String chMDFe;
+    protected String ultNSU;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
@@ -86,51 +105,83 @@ public class TConsSitMDFe {
     }
 
     /**
-     * Gets the value of the xServ property.
+     * Gets the value of the verAplic property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getXServ() {
-        return xServ;
+    public String getVerAplic() {
+        return verAplic;
     }
 
     /**
-     * Sets the value of the xServ property.
+     * Sets the value of the verAplic property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setXServ(String value) {
-        this.xServ = value;
+    public void setVerAplic(String value) {
+        this.verAplic = value;
     }
 
     /**
-     * Gets the value of the chMDFe property.
+     * Gets the value of the indDFe property.
+     * 
+     */
+    public long getIndDFe() {
+        return indDFe;
+    }
+
+    /**
+     * Sets the value of the indDFe property.
+     * 
+     */
+    public void setIndDFe(long value) {
+        this.indDFe = value;
+    }
+
+    /**
+     * Gets the value of the indCompRet property.
+     * 
+     */
+    public long getIndCompRet() {
+        return indCompRet;
+    }
+
+    /**
+     * Sets the value of the indCompRet property.
+     * 
+     */
+    public void setIndCompRet(long value) {
+        this.indCompRet = value;
+    }
+
+    /**
+     * Gets the value of the ultNSU property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getChMDFe() {
-        return chMDFe;
+    public String getUltNSU() {
+        return ultNSU;
     }
 
     /**
-     * Sets the value of the chMDFe property.
+     * Sets the value of the ultNSU property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setChMDFe(String value) {
-        this.chMDFe = value;
+    public void setUltNSU(String value) {
+        this.ultNSU = value;
     }
 
     /**
