@@ -48,6 +48,7 @@
 								<xs:documentation>Tipo do Evento:
 110111 - Cancelamento
 110112 - Encerramento
+110114 - Inclusão de Condutor
 310620 - Registro de Passagem
 510620 - Registro de Passagem BRId</xs:documentation>
 							</xs:annotation>

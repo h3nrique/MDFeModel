@@ -331,7 +331,7 @@ Por exemplo, o arquivo para o schema do modal Rodoviário na versão 1.00 será 
 															<xs:element name="infUnidTransp" type="TUnidadeTransp" minOccurs="0" maxOccurs="unbounded">
 																<xs:annotation>
 																	<xs:documentation>Informações das Unidades de Transporte (Carreta/Reboque/Vagão)</xs:documentation>
-																	<xs:documentation>Dispositivo de carga utilizada (Unit Load Device - ULD) significa todo tipo de contêiner de carga, vagão, contêiner de avião, palete de aeronave com rede ou palete de aeronave com rede sobre um iglu. </xs:documentation>
+																	<xs:documentation>Deve ser preenchido com as informações das unidades de transporte utilizadas.</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
@@ -384,7 +384,7 @@ Por exemplo, o arquivo para o schema do modal Rodoviário na versão 1.00 será 
 															<xs:element name="infUnidTransp" type="TUnidadeTransp" minOccurs="0" maxOccurs="unbounded">
 																<xs:annotation>
 																	<xs:documentation>Informações das Unidades de Transporte (Carreta/Reboque/Vagão)</xs:documentation>
-																	<xs:documentation>Dispositivo de carga utilizada (Unit Load Device - ULD) significa todo tipo de contêiner de carga, vagão, contêiner de avião, palete de aeronave com rede ou palete de aeronave com rede sobre um iglu. </xs:documentation>
+																	<xs:documentation>Deve ser preenchido com as informações das unidades de transporte utilizadas.</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
@@ -409,7 +409,7 @@ Por exemplo, o arquivo para o schema do modal Rodoviário na versão 1.00 será 
 															<xs:element name="infUnidTransp" type="TUnidadeTransp" minOccurs="0" maxOccurs="unbounded">
 																<xs:annotation>
 																	<xs:documentation>Informações das Unidades de Transporte (Carreta/Reboque/Vagão)</xs:documentation>
-																	<xs:documentation>Dispositivo de carga utilizada (Unit Load Device - ULD) significa todo tipo de contêiner de carga, vagão, contêiner de avião, palete de aeronave com rede ou palete de aeronave com rede sobre um iglu. </xs:documentation>
+																	<xs:documentation>Deve ser preenchido com as informações das unidades de transporte utilizadas.</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
@@ -462,6 +462,26 @@ Por exemplo, o arquivo para o schema do modal Rodoviário na versão 1.00 será 
 																<xs:annotation>
 																	<xs:documentation>PIN SUFRAMA</xs:documentation>
 																	<xs:documentation>PIN atribuído pela SUFRAMA para a operação.</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="infUnidTransp" type="TUnidadeTransp" minOccurs="0" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>Informações das Unidades de Transporte (Carreta/Reboque/Vagão)</xs:documentation>
+																	<xs:documentation>Dispositivo de carga utilizada (Unit Load Device - ULD) significa todo tipo de contêiner de carga, vagão, contêiner de avião, palete de aeronave com rede ou palete de aeronave com rede sobre um iglu. </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="infMDFeTransp" minOccurs="0" maxOccurs="2000">
+													<xs:annotation>
+														<xs:documentation>Manifesto Eletrônico de Documentos Fiscais. Somente para modal Aquaviário (vide regras MOC)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="chMDFe" type="TChNFe">
+																<xs:annotation>
+																	<xs:documentation>Manifesto Eletrônico de Documentos Fiscais</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 															<xs:element name="infUnidTransp" type="TUnidadeTransp" minOccurs="0" maxOccurs="unbounded">
@@ -527,6 +547,16 @@ Por exemplo, o arquivo para o schema do modal Rodoviário na versão 1.00 será 
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
+									<xs:element name="qMDFe" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Quantidade total de MDF-e relacionados no Manifesto Aquaviário</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:pattern value="2000|1[0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[1-9]"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
 									<xs:element name="vCarga" type="TDec_1302">
 										<xs:annotation>
 											<xs:documentation>Valor total da carga / mercadorias transportadas</xs:documentation>
@@ -570,6 +600,30 @@ Por exemplo, o arquivo para o schema do modal Rodoviário na versão 1.00 será 
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="autXML" minOccurs="0" maxOccurs="10">
+							<xs:annotation>
+								<xs:documentation>Autorizados para download do XML do DF-e</xs:documentation>
+								<xs:documentation>Informar CNPJ ou CPF. Preencher os zeros não significativos.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:choice>
+										<xs:element name="CNPJ" type="TCnpj">
+											<xs:annotation>
+												<xs:documentation>CNPJ do autorizado</xs:documentation>
+												<xs:documentation>Informar zeros não significativos</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CPF" type="TCpf">
+											<xs:annotation>
+												<xs:documentation>CPF do autorizado</xs:documentation>
+												<xs:documentation>Informar zeros não significativos</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:choice>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1490,6 +1544,9 @@ Não informar o conteúdo da TAG se a operação for realizada com o Exterior.</
 			<xs:element name="idUnidTransp" type="TContainer">
 				<xs:annotation>
 					<xs:documentation>Identificação da Unidade de Transporte</xs:documentation>
+					<xs:documentation>Informar a identificação conforme o tipo de unidade de transporte.
+Por exemplo: para rodoviário tração ou reboque deverá preencher com a placa do veículo.
+</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="lacUnidTransp" minOccurs="0" maxOccurs="unbounded">
@@ -1545,6 +1602,7 @@ Não informar o conteúdo da TAG se a operação for realizada com o Exterior.</
 			<xs:element name="idUnidCarga" type="TContainer">
 				<xs:annotation>
 					<xs:documentation>Identificação da Unidade de Carga</xs:documentation>
+					<xs:documentation>Informar a identificação da unidade de carga, por exemplo: número do container.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="lacUnidCarga" minOccurs="0" maxOccurs="unbounded">
