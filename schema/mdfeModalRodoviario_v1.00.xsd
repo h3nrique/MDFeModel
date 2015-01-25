@@ -145,7 +145,7 @@ Só preenchido quando o veículo não pertencer à empresa emitente do MDF-e</xs
 											<xs:simpleType>
 												<xs:restriction base="TString">
 													<xs:maxLength value="60"/>
-													<xs:minLength value="1"/>
+													<xs:minLength value="2"/>
 												</xs:restriction>
 											</xs:simpleType>
 										</xs:element>
@@ -197,7 +197,7 @@ Só preenchido quando o veículo não pertencer à empresa emitente do MDF-e</xs
 											<xs:simpleType>
 												<xs:restriction base="TString">
 													<xs:maxLength value="60"/>
-													<xs:minLength value="1"/>
+													<xs:minLength value="2"/>
 												</xs:restriction>
 											</xs:simpleType>
 										</xs:element>
