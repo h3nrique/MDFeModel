@@ -8,54 +8,46 @@
 
 package br.inf.portalfiscal.mdfe;
 
-import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * Tipo Retorno do Pedido de Concessão de Autorização do MDF-e
+ * Tipo Retorno de Pedido de Consulta MDF-e não Encerrados
  * 
- * <p>Java class for TRetEnviMDFe complex type.
+ * <p>Java class for TRetConsMDFeNaoEnc complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TRetEnviMDFe">
+ * &lt;complexType name="TRetConsMDFeNaoEnc">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="tpAmb" type="{http://www.w3.org/2001/XMLSchema}anyType"/>
- *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/mdfe}TCodUfIBGE"/>
+ *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/mdfe}TAmb"/>
  *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/mdfe}TVerAplic"/>
  *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/mdfe}TStat"/>
  *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/mdfe}TMotivo"/>
- *         &lt;element name="infRec" minOccurs="0">
+ *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/mdfe}TCodUfIBGE"/>
+ *         &lt;element name="infMDFe" maxOccurs="unbounded" minOccurs="0">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="nRec" type="{http://www.portalfiscal.inf.br/mdfe}TRec"/>
- *                   &lt;element name="dhRecbto" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *                   &lt;element name="tMed">
- *                     &lt;simpleType>
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}integer">
- *                         &lt;pattern value="[0-9]{1,4}"/>
- *                       &lt;/restriction>
- *                     &lt;/simpleType>
- *                   &lt;/element>
+ *                   &lt;element name="chMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TChMDFe"/>
+ *                   &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/mdfe}TProt"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
  *       &lt;/sequence>
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerMDe" />
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerConsMDFeNaoEnc" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -64,27 +56,27 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRetEnviMDFe", propOrder = {
+@XmlType(name = "TRetConsMDFeNaoEnc", propOrder = {
     "tpAmb",
-    "cuf",
     "verAplic",
     "cStat",
     "xMotivo",
-    "infRec"
+    "cuf",
+    "infMDFe"
 })
-public class TRetEnviMDFe {
+public class TRetConsMDFeNaoEnc {
 
     @XmlElement(required = true)
-    protected Object tpAmb;
-    @XmlElement(name = "cUF", required = true)
-    protected String cuf;
+    protected String tpAmb;
     @XmlElement(required = true)
     protected String verAplic;
     @XmlElement(required = true)
     protected String cStat;
     @XmlElement(required = true)
     protected String xMotivo;
-    protected TRetEnviMDFe.InfRec infRec;
+    @XmlElement(name = "cUF", required = true)
+    protected String cuf;
+    protected List<TRetConsMDFeNaoEnc.InfMDFe> infMDFe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
@@ -93,10 +85,10 @@ public class TRetEnviMDFe {
      * 
      * @return
      *     possible object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public Object getTpAmb() {
+    public String getTpAmb() {
         return tpAmb;
     }
 
@@ -105,35 +97,11 @@ public class TRetEnviMDFe {
      * 
      * @param value
      *     allowed object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public void setTpAmb(Object value) {
+    public void setTpAmb(String value) {
         this.tpAmb = value;
-    }
-
-    /**
-     * Gets the value of the cuf property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCUF() {
-        return cuf;
-    }
-
-    /**
-     * Sets the value of the cuf property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCUF(String value) {
-        this.cuf = value;
     }
 
     /**
@@ -209,27 +177,56 @@ public class TRetEnviMDFe {
     }
 
     /**
-     * Gets the value of the infRec property.
+     * Gets the value of the cuf property.
      * 
      * @return
      *     possible object is
-     *     {@link TRetEnviMDFe.InfRec }
+     *     {@link String }
      *     
      */
-    public TRetEnviMDFe.InfRec getInfRec() {
-        return infRec;
+    public String getCUF() {
+        return cuf;
     }
 
     /**
-     * Sets the value of the infRec property.
+     * Sets the value of the cuf property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TRetEnviMDFe.InfRec }
+     *     {@link String }
      *     
      */
-    public void setInfRec(TRetEnviMDFe.InfRec value) {
-        this.infRec = value;
+    public void setCUF(String value) {
+        this.cuf = value;
+    }
+
+    /**
+     * Gets the value of the infMDFe property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the infMDFe property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getInfMDFe().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link TRetConsMDFeNaoEnc.InfMDFe }
+     * 
+     * 
+     */
+    public List<TRetConsMDFeNaoEnc.InfMDFe> getInfMDFe() {
+        if (infMDFe == null) {
+            infMDFe = new ArrayList<TRetConsMDFeNaoEnc.InfMDFe>();
+        }
+        return this.infMDFe;
     }
 
     /**
@@ -267,15 +264,8 @@ public class TRetEnviMDFe {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="nRec" type="{http://www.portalfiscal.inf.br/mdfe}TRec"/>
-     *         &lt;element name="dhRecbto" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
-     *         &lt;element name="tMed">
-     *           &lt;simpleType>
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}integer">
-     *               &lt;pattern value="[0-9]{1,4}"/>
-     *             &lt;/restriction>
-     *           &lt;/simpleType>
-     *         &lt;/element>
+     *         &lt;element name="chMDFe" type="{http://www.portalfiscal.inf.br/mdfe}TChMDFe"/>
+     *         &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/mdfe}TProt"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -286,90 +276,62 @@ public class TRetEnviMDFe {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nRec",
-        "dhRecbto",
-        "tMed"
+        "chMDFe",
+        "nProt"
     })
-    public static class InfRec {
+    public static class InfMDFe {
 
         @XmlElement(required = true)
-        protected String nRec;
+        protected String chMDFe;
         @XmlElement(required = true)
-        @XmlSchemaType(name = "dateTime")
-        protected XMLGregorianCalendar dhRecbto;
-        @XmlElement(required = true)
-        protected BigInteger tMed;
+        protected String nProt;
 
         /**
-         * Gets the value of the nRec property.
+         * Gets the value of the chMDFe property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getNRec() {
-            return nRec;
+        public String getChMDFe() {
+            return chMDFe;
         }
 
         /**
-         * Sets the value of the nRec property.
+         * Sets the value of the chMDFe property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setNRec(String value) {
-            this.nRec = value;
+        public void setChMDFe(String value) {
+            this.chMDFe = value;
         }
 
         /**
-         * Gets the value of the dhRecbto property.
+         * Gets the value of the nProt property.
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getDhRecbto() {
-            return dhRecbto;
+        public String getNProt() {
+            return nProt;
         }
 
         /**
-         * Sets the value of the dhRecbto property.
+         * Sets the value of the nProt property.
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setDhRecbto(XMLGregorianCalendar value) {
-            this.dhRecbto = value;
-        }
-
-        /**
-         * Gets the value of the tMed property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
-         */
-        public BigInteger getTMed() {
-            return tMed;
-        }
-
-        /**
-         * Sets the value of the tMed property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
-         */
-        public void setTMed(BigInteger value) {
-            this.tMed = value;
+        public void setNProt(String value) {
+            this.nProt = value;
         }
 
     }

@@ -16,21 +16,27 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Tipo Pedido de Consulta do Status do Serviço MDFe
+ * Tipo Pedido de Consulta MDF-e Não Encerrados
  * 
- * <p>Java class for TConsStatServ complex type.
+ * <p>Java class for TConsMDFeNaoEnc complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TConsStatServ">
+ * &lt;complexType name="TConsMDFeNaoEnc">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/mdfe}TAmb"/>
  *         &lt;element name="xServ" type="{http://www.portalfiscal.inf.br/mdfe}TServ"/>
+ *         &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/mdfe}TCnpj"/>
  *       &lt;/sequence>
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/mdfe}TVerConsStat" />
+ *       &lt;attribute name="versao" use="required">
+ *         &lt;simpleType>
+ *           &lt;restriction base="{http://www.portalfiscal.inf.br/mdfe}TVerConsMDFeNaoEnc">
+ *           &lt;/restriction>
+ *         &lt;/simpleType>
+ *       &lt;/attribute>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -39,16 +45,19 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TConsStatServ", propOrder = {
+@XmlType(name = "TConsMDFeNaoEnc", propOrder = {
     "tpAmb",
-    "xServ"
+    "xServ",
+    "cnpj"
 })
-public class TConsStatServ {
+public class TConsMDFeNaoEnc {
 
     @XmlElement(required = true)
     protected String tpAmb;
     @XmlElement(required = true)
     protected String xServ;
+    @XmlElement(name = "CNPJ", required = true)
+    protected String cnpj;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
@@ -98,6 +107,30 @@ public class TConsStatServ {
      */
     public void setXServ(String value) {
         this.xServ = value;
+    }
+
+    /**
+     * Gets the value of the cnpj property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCNPJ() {
+        return cnpj;
+    }
+
+    /**
+     * Sets the value of the cnpj property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCNPJ(String value) {
+        this.cnpj = value;
     }
 
     /**
