@@ -1,4 +1,10 @@
 parsing a schema...
+[WARNING] java.net.MalformedURLException: unknown protocol: c
+  line 3 of file:/home/paulo.alves/git/MDFeModel/schema/consMDFeNaoEnc_v1.00.xsd
+
+[WARNING] java.net.MalformedURLException: unknown protocol: c
+  line 3 of file:/home/paulo.alves/git/MDFeModel/schema/retConsMDFeNaoEnc_v1.00.xsd
+
 compiling a schema...
 org/w3/_2000/_09/xmldsig/KeyInfoType.java
 org/w3/_2000/_09/xmldsig/ObjectFactory.java
@@ -19,6 +25,7 @@ br/inf/portalfiscal/mdfe/Ferrov.java
 br/inf/portalfiscal/mdfe/MdfeProc.java
 br/inf/portalfiscal/mdfe/ObjectFactory.java
 br/inf/portalfiscal/mdfe/Rodo.java
+br/inf/portalfiscal/mdfe/TConsMDFeNaoEnc.java
 br/inf/portalfiscal/mdfe/TConsReciMDFe.java
 br/inf/portalfiscal/mdfe/TConsSitMDFe.java
 br/inf/portalfiscal/mdfe/TConsStatServ.java
@@ -39,6 +46,7 @@ br/inf/portalfiscal/mdfe/TMDFeDFe.java
 br/inf/portalfiscal/mdfe/TNFeNF.java
 br/inf/portalfiscal/mdfe/TProcEvento.java
 br/inf/portalfiscal/mdfe/TProtMDFe.java
+br/inf/portalfiscal/mdfe/TRetConsMDFeNaoEnc.java
 br/inf/portalfiscal/mdfe/TRetConsReciMDFe.java
 br/inf/portalfiscal/mdfe/TRetConsSitMDFe.java
 br/inf/portalfiscal/mdfe/TRetConsStatServ.java
