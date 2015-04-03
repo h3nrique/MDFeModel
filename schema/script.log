@@ -1,10 +1,4 @@
 parsing a schema...
-[WARNING] java.net.MalformedURLException: unknown protocol: c
-  line 3 of file:/home/paulo.alves/git/MDFeModel/schema/consMDFeNaoEnc_v1.00.xsd
-
-[WARNING] java.net.MalformedURLException: unknown protocol: c
-  line 3 of file:/home/paulo.alves/git/MDFeModel/schema/retConsMDFeNaoEnc_v1.00.xsd
-
 compiling a schema...
 org/w3/_2000/_09/xmldsig/KeyInfoType.java
 org/w3/_2000/_09/xmldsig/ObjectFactory.java
