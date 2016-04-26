@@ -1,7 +1,7 @@
 MDFeModel
 =========
 
-Projeto com objetos utilizados para as chamadas dos serviços de MDFe disponibilizados pelas Secretarias de Fazenda.
+Projeto com objetos utilizados nos serviços de MDFe disponibilizados pelas Secretarias de Fazenda.
 
 Instalação
 --------
