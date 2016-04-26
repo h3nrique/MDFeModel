@@ -12,14 +12,12 @@ org/w3/_2000/_09/xmldsig_/X509DataType.java
 org/w3/_2000/_09/xmldsig_/package-info.java
 br/inf/portalfiscal/mdfe/Aereo.java
 br/inf/portalfiscal/mdfe/Aquav.java
-br/inf/portalfiscal/mdfe/DistDFeInt.java
 br/inf/portalfiscal/mdfe/EvCancMDFe.java
 br/inf/portalfiscal/mdfe/EvEncMDFe.java
 br/inf/portalfiscal/mdfe/EvIncCondutorMDFe.java
 br/inf/portalfiscal/mdfe/Ferrov.java
 br/inf/portalfiscal/mdfe/MdfeProc.java
 br/inf/portalfiscal/mdfe/ObjectFactory.java
-br/inf/portalfiscal/mdfe/RetDistDFeInt.java
 br/inf/portalfiscal/mdfe/Rodo.java
 br/inf/portalfiscal/mdfe/TConsMDFeNaoEnc.java
 br/inf/portalfiscal/mdfe/TConsReciMDFe.java
