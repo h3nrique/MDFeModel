@@ -17,6 +17,7 @@
 		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
 	</properties>
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
