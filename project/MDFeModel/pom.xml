@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.midiadev.sefaz</groupId>
 	<artifactId>MDFeModel</artifactId>
-	<version>3.00</version>
+	<version>3.00_NT02.2017</version>
 	<packaging>jar</packaging>
 
 	<properties>
